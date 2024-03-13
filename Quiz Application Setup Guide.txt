@@ -1,0 +1,75 @@
+Quiz Application Setup Guide
+Prerequisites:
+Java Development Kit (JDK):
+
+Install Java Development Kit (JDK) version 8 or higher.
+Maven:
+
+Install Maven build tool.
+IDE:
+
+Choose and install an Integrated Development Environment (IDE) like IntelliJ IDEA or Eclipse.
+MySQL Database:
+
+Install and set up MySQL database server.
+
+
+Steps:
+1. Clone the Repository:
+
+git clone <repository-url>
+
+2. Database Configuration:
+Create a MySQL database for the application:
+
+3. Configure Database Connection:
+Open src/main/resources/application.properties.
+Update the database connection properties:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/quizappdb
+spring.datasource.username=root
+spring.datasource.password=password
+
+
+4. Create Database Tables:
+Open src/main/resources/application.properties.
+Set Hibernate's ddl-auto property to update:
+
+spring.jpa.hibernate.ddl-auto=update
+
+
+5. Run the Application:
+Open the project in your IDE.
+Build and run the project using Maven or your IDE's build tools.
+
+
+6. API Endpoints:
+
+Access the API endpoints using tools like Postman or cURL.
+
+Upload Test Data: POST /api/
+
+Start Test: POST /api/starttest
+
+Get Question: GET /api/question/{questionId}
+
+Redirect User: POST /api/redirect
+
+Store Test Result: POST /api/storeresult
+
+Get Result: GET /api/getResult/{userId}
+
+Get All Test Results: GET /api/getall
+
+7. Upload Test Data:
+
+Use POST /api/ to upload test data. Prepare an Excel sheet in the specified format and send a POST request with the Excel file.
+
+8. Start Test:
+Initiate a test for a user using POST /api/starttest. Send a POST request with user information in the request body.
+
+9. Answer Questions:
+Use GET /api/question/{questionId} to retrieve questions and POST /api/redirect to answer questions and progress through the quiz.
+
+10. Retrieve Results:
+Use GET /api/getResult/{userId} to get a specific user's test result and GET /api/getall to retrieve all test results.
